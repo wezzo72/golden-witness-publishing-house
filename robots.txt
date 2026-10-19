@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://wezzo72.github.io/golden-witness-publishing-house/sitemap.xml

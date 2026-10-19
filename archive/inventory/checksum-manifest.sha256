@@ -1,0 +1,14 @@
+# SHA-256 of inventory outputs produced by this scan.
+# Source blobs are identified by git blob SHA in source-file-manifest.csv.
+# Full-byte SHA-256 of multi-gigabyte source trees was not computed.
+
+6c574340204b8b376b9f502156e38900a96b22b90f1d0eec02cc04fb5a6d4edb  repository-register.csv
+f526afb87973398a18bd7f98d908f888ebd103e043a9d2579113686418241476  master-catalogue.csv
+264bfe4ee6abc1b1eace8d8898793f5c611b6b46379dd58acf761fd769de06a9  master-catalogue.json
+779909aa43de7496ae3df3825b96214ea116968c1ae9687a7d144f26dcf55606  source-file-manifest.csv
+63588d7742792a4b1fa1ec644412f34ca577f7a8f1a657f6d3c78cb91f4d8f32  duplicate-and-version-report.md
+53d8bb5735d3e04151296b8658aab1da983cb19285e1434c65fad9c0f14b90aa  missing-and-inaccessible-materials.md
+72122c0641bbc09e106925be67c56a4972bf599bfc8c34679edfaa19688315d1  rights-and-permissions-register.csv
+e25339ed545bfd36df272c17835fb2a80922e3103ecde18b2b683b215a4a670a  publication-readiness-report.md
+05d031cb20c706bda3e4e3c7d46d8370f5c30afde6f411280e3339430943581a  public/catalogue/records.json
+876f26488159ecc650427d6ea0847fac0d4cf6b0947cd535fa92b10318eb1a17  public/catalogue/featured.json

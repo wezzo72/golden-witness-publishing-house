@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work — The Golden Witness</title>
+<meta name="description" content="A single named work." />
+<link rel="canonical" href="https://wezzo72.github.io/golden-witness-publishing-house/work.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Literata:opsz,wght@7..72,460;7..72,620&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<meta property="og:title" content="Work — The Golden Witness" />
+<meta property="og:description" content="A single named work." />
+<meta property="og:type" content="website" />
+</head>
+<body>
+<a href="#content">Skip to content</a>
+<header>
+  <a class="brand" href="index.html"><img src="art/seal.jpg" alt="" /><span><strong style="font-family:Cormorant Garamond,serif;font-size:1.6rem;color:var(--champagne)">The Golden Witness</strong><br/><span class="kicker">Publishing house</span></span></a>
+  <a class="btn" href="https://donate.stripe.com/9B6cN64Cr5epajjc9h0Ny0a">Support the Golden Witness</a>
+</header>
+<nav aria-label="Primary"><a href="index.html">Home</a> <a href="chosen-witness.html">The Chosen Witness</a> <a href="gospel.html">Gospel Library</a> <a href="prophetic.html">Prophetic Papers</a> <a href="forensic.html">Forensic Narratives</a> <a href="art.html">Art and Creative Works</a> <a href="publishing-house.html">International Publishing House</a> <a href="library.html">Free Reading Library</a> <a href="shop.html">Shop</a> <a href="support.html">Support the Archive</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="legal.html">Privacy and Terms</a></nav>
+<main id="content"><p class="kicker" id="kicker">Work</p><h1 id="title">Opening…</h1><div id="body"></div>
+<script>
+const slug=new URLSearchParams(location.search).get('slug');
+fetch('catalogue/featured.json').then(r=>r.json()).then(d=>{
+  const w=(d.works||[]).find(x=>x.slug===slug);
+  const t=document.getElementById('title'), b=document.getElementById('body');
+  if(!w){ t.textContent='Not in the featured register'; return; }
+  document.title=w.title+' — The Golden Witness';
+  document.getElementById('kicker').textContent=w.shelf+' · '+w.status;
+  t.textContent=w.title;
+  b.innerHTML='<p>'+w.synopsis+'</p><p>'+w.price+'</p>'+(w.sourceUrl?'<p><a class="ghost" href="'+w.sourceUrl+'">Open the source</a></p>':'')+(w.saleUrl?'<p><a class="btn" href="'+w.saleUrl+'">Open the Stripe link</a></p>':'')+(w.sourcePath?'<p>'+w.sourceRepo+' / '+w.sourcePath+'</p>':'');
+}).catch(()=>{ document.getElementById('title').textContent='The register did not load.'; });
+</script></main>
+<footer>
+<p>A page is not a finding. This house is not a court and not a verdict. Free reading stays free. A contribution is not tax deductible.</p>
+<p><a href="legal.html">Privacy and terms</a> · <a href="contact.html">Corrections</a> · <a href="provenance.html">How the catalogue was made</a> · <a href="https://github.com/wezzo72/golden-witness-publishing-house">Repository</a></p>
+<button type="button" onclick="document.documentElement.dataset.contrast=document.documentElement.dataset.contrast==='high'?'':'high'">High-contrast reading</button>
+</footer>
+</body></html>

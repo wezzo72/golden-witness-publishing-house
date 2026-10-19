@@ -2,26 +2,29 @@
 
 Barran Dodger International Publishing House.
 
-This repository is new. It does not modify Barrandodger, pdf-archive, Backup, the church repository, drbarrandodger/barran-dodger-archive, or any existing deployment.
+This repository is the new house. It does not modify Barrandodger, the church repository, pdf-archive, Backup, Myaidrive, barran-dodger-archive, drbarrandodger/barran-dodger-archive, or any older deployment.
 
-## What is here
+## What is published
 
-A static reading copy (`index.html`) and `catalogue.json`: verified records from the gospel register, plus titles that were sought and not located.
+A static reading room for GitHub Pages, a searchable catalogue of 8,113 deduplicated public files, and the scan registers under `archive/inventory/`.
 
-## Donation
+Source files are linked, not recopied. Private press bytes were not copied. Git LFS pointers are not treated as readable editions.
 
-One-time, chosen amount (preset A$20, minimum A$2, other amounts allowed):
+## Contributions
 
-https://donate.stripe.com/9B6cN64Cr5epajjc9h0Ny0a
+Live Stripe links, read from the account named www.barrandodger.com on 19 October 2026:
 
-Fixed one-time links: A$10, A$40, A$100. A separate A$10 monthly link exists and is labelled as recurring. Gifts are not tax deductible. ABN 78 833 496 164 (The Trustee for www.barrandodger.com.au) is not entitled to receive tax-deductible gifts, and this house is not that trust.
+- Chosen amount, preset A$20, minimum A$2: https://donate.stripe.com/9B6cN64Cr5epajjc9h0Ny0a
+- A$10, A$40, A$100 once, and a separate A$10 monthly link, are on the Support page.
 
-## GitHub Pages
+Gifts are not tax deductible. This house is not the trust named in the author’s documents.
 
-Pages is not switched on by creating the repository. After it is enabled from branch `main` and folder `/` (root), the address should be:
+## Shop
 
-https://wezzo72.github.io/golden-witness-publishing-house/
+Four live product links are on the shop page. None has been shown to email a file. The combined Shrink and Splice link says so in Stripe’s own confirmation text.
 
-Do not treat that address as live until it has been opened and checked.
+## Pages
 
-GitHub Pages on the free plan is a public static host. Bandwidth is not unlimited.
+GitHub Pages must be serving `main` from `/` before https://wezzo72.github.io/golden-witness-publishing-house/ is called live.
+
+GitHub Free and GitHub Pages are not unlimited.

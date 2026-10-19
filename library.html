@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Free Reading Library — The Golden Witness</title>
+<meta name="description" content="Search the public file register." />
+<link rel="canonical" href="https://wezzo72.github.io/golden-witness-publishing-house/library.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Literata:opsz,wght@7..72,460;7..72,620&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<meta property="og:title" content="Free Reading Library — The Golden Witness" />
+<meta property="og:description" content="Search the public file register." />
+<meta property="og:type" content="website" />
+</head>
+<body>
+<a href="#content">Skip to content</a>
+<header>
+  <a class="brand" href="index.html"><img src="art/seal.jpg" alt="" /><span><strong style="font-family:Cormorant Garamond,serif;font-size:1.6rem;color:var(--champagne)">The Golden Witness</strong><br/><span class="kicker">Publishing house</span></span></a>
+  <a class="btn" href="https://donate.stripe.com/9B6cN64Cr5epajjc9h0Ny0a">Support the Golden Witness</a>
+</header>
+<nav aria-label="Primary"><a href="index.html">Home</a> <a href="chosen-witness.html">The Chosen Witness</a> <a href="gospel.html">Gospel Library</a> <a href="prophetic.html">Prophetic Papers</a> <a href="forensic.html">Forensic Narratives</a> <a href="art.html">Art and Creative Works</a> <a href="publishing-house.html">International Publishing House</a> <a href="library.html">Free Reading Library</a> <a href="shop.html">Shop</a> <a href="support.html">Support the Archive</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="legal.html">Privacy and Terms</a></nav>
+<main id="content"><p class="kicker">Free reading</p><h1>Free Reading Library</h1>
+<p>Public files of at least one kilobyte. Payment is not required.</p>
+<label>Search <input id="q" type="search" /></label>
+<label>Shelf <select id="shelf"><option value="all">all</option><option>gospel</option><option>prophetic</option><option>forensic</option><option>ministry</option><option>literature</option><option>art</option><option>record</option></select></label>
+<p id="count"></p><div id="list"></div>
+<p class="row"><button type="button" id="prev">Previous</button><button type="button" id="next">Next</button></p>
+<noscript>The file list needs JavaScript. The export itself is at <a href="catalogue/records.json">catalogue/records.json</a>.</noscript>
+<script>
+const list=document.getElementById('list'), count=document.getElementById('count');
+let rows=[], page=0;
+function draw(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const shelf=document.getElementById('shelf').value;
+  const hit=rows.filter(r=>(shelf==='all'||r.shelf===shelf)&&(!q||(r.title+' '+r.path).toLowerCase().includes(q)));
+  const size=24, slice=hit.slice(page*size, page*size+size);
+  count.textContent=hit.length+' shown of '+rows.length+' files. Page '+(page+1);
+  list.innerHTML=slice.map(r=>'<article><p class="kicker">'+r.shelf+' · '+r.ext+'</p><h2><a href="record.html?sha='+r.sha+'">'+r.title.replace(/[&<>]/g,c=>({'&':'&','<':'<','>':'>'}[c]))+'</a></h2><p>'+r.repo+'</p></article>').join('');
+  document.getElementById('prev').disabled=page===0;
+  document.getElementById('next').onclick=()=>{ if((page+1)*size<hit.length){page++; draw();} };
+}
+document.getElementById('prev').onclick=()=>{ if(page){page--; draw();} };
+document.getElementById('q').oninput=()=>{ page=0; draw(); };
+document.getElementById('shelf').onchange=()=>{ page=0; draw(); };
+fetch('catalogue/records.json').then(r=>r.json()).then(d=>{ rows=d.records||[]; draw(); }).catch(()=>{ count.textContent='The register did not load.'; });
+</script></main>
+<footer>
+<p>A page is not a finding. This house is not a court and not a verdict. Free reading stays free. A contribution is not tax deductible.</p>
+<p><a href="legal.html">Privacy and terms</a> · <a href="contact.html">Corrections</a> · <a href="provenance.html">How the catalogue was made</a> · <a href="https://github.com/wezzo72/golden-witness-publishing-house">Repository</a></p>
+<button type="button" onclick="document.documentElement.dataset.contrast=document.documentElement.dataset.contrast==='high'?'':'high'">High-contrast reading</button>
+</footer>
+</body></html>

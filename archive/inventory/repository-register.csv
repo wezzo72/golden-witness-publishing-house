@@ -1,0 +1,13 @@
+repo,url,visibility,default_branch_assumed,tree_truncated,tree_entries,blobs,relevance
+wezzo72/Barrandodger,https://github.com/wezzo72/Barrandodger,public,main,False,6993,6904,Primary public website and document archive. Relevant.
+wezzo72/-church-of-barran-dodger,https://github.com/wezzo72/-church-of-barran-dodger,public,main,False,87,85,Public ministry pages. Relevant.
+wezzo72/barrandodger-rebuild,https://github.com/wezzo72/barrandodger-rebuild,public,main,False,3166,3152,Preservation rebuild of the public site. Relevant.
+wezzo72/pdf-archive,https://github.com/wezzo72/pdf-archive,public,main,False,310,299,PDF archive. Relevant.
+wezzo72/Backup,https://github.com/wezzo72/Backup,public,main,False,2460,2419,Older application backup with documents. Relevant.
+wezzo72/barran-dodger-archive,https://github.com/wezzo72/barran-dodger-archive,public,main,False,19401,18420,Large archive including a pdf mirror and a dependency tree. Relevant.
+wezzo72/barran-dodger-ministry,https://github.com/wezzo72/barran-dodger-ministry,public,main,False,352,279,"Ministry app source. Relevant as a site export, not as a manuscript."
+wezzo72/Myaidrive,https://github.com/wezzo72/Myaidrive,public,main,False,3446,3355,Drive and Dropbox import of PDFs. Relevant.
+wezzo72/barrandodger-creative-discovery,https://github.com/wezzo72/barrandodger-creative-discovery,private,main,False,6,4,"Private helper script. Not a publication. Recorded, not copied."
+wezzo72/bd-press-editions,https://github.com/wezzo72/bd-press-editions,private,main,False,3,3,Private press-edition PDF. Existence recorded. Bytes not copied.
+wezzo72/New,https://github.com/wezzo72/New,public,main,False,1,1,Empty stub. Not part of the corpus.
+drbarrandodger/barran-dodger-archive,https://github.com/drbarrandodger/barran-dodger-archive,public,main,False,16963,16018,"Related public archive under another login. Linked, not forked into this house."
