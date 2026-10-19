@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Golden Witness — Barran Dodger International Publishing House</title>
+  <meta name="description" content="A living library of spiritual testimony, creative literature, human dignity and public-interest documentation." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root { color-scheme: dark; --bg:#07080c; --gold:#c6a15a; --ivory:#f6f1e6; --line:#3c3428; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ivory); font: 1.05rem/1.6 Georgia, serif; }
+    header, main, footer { max-width: 68rem; margin: 0 auto; padding: 1.25rem; }
+    h1,h2 { font-weight: 500; line-height: 1.05; color: #e7d3a1; }
+    h1 { font-size: clamp(2.6rem, 8vw, 4.5rem); margin: 0.2rem 0 0.6rem; }
+    a { color: #e7d3a1; }
+    .kicker { letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-size: .78rem; }
+    .btn { display:inline-flex; min-height:44px; align-items:center; padding:.6rem 1rem; background:var(--gold); color:#14120e; text-decoration:none; letter-spacing:.12em; text-transform:uppercase; font-weight:700; }
+    nav a { margin-right: .8rem; }
+    article { border:1px solid var(--line); padding: .8rem 1rem; margin: .6rem 0; }
+    input, select { min-height:44px; background:transparent; color:inherit; border:1px solid var(--line); padding:.4rem .6rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Barran Dodger International Publishing House</p>
+    <h1>The Golden Witness</h1>
+    <p>“A living library of spiritual testimony, creative literature, human dignity and public-interest documentation.”</p>
+    <p><a class="btn" href="https://donate.stripe.com/9B6cN64Cr5epajjc9h0Ny0a">Support the Golden Witness</a></p>
+    <nav aria-label="Primary">
+      <a href="https://chosen-witness.grok.me/">The Chosen Witness</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#support">Support</a>
+      <a href="catalogue.json">JSON export</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>What this page is</h2>
+      <p>This is the static reading copy in the new repository. It does not modify any older archive. A record is included only when a file or a public register was actually seen, or when a requested title was sought and not found.</p>
+      <p>Gifts are not tax deductible. ABN 78 833 496 164, The Trustee for www.barrandodger.com.au, is a fixed unit trust and is not entitled to receive tax-deductible gifts. This page is not that trust.</p>
+    </section>
+    <section id="support">
+      <h2>Support</h2>
+      <p>One-time. The chosen-amount page presets A$20 and allows another amount, minimum A$2. Fixed links: <a href="https://donate.stripe.com/aFa5kEgl9ayJ8bba190Ny07">A$10</a>, <a href="https://donate.stripe.com/4gM28s2ujfT39ff2yH0Ny08">A$40</a>, <a href="https://donate.stripe.com/9B68wQ0mb6itajjb5d0Ny09">A$100</a>. Monthly, only if you mean it: <a href="https://donate.stripe.com/28EfZied1eOZ9ff4GP0Ny0b">A$10 each month</a>.</p>
+    </section>
+    <section id="catalogue">
+      <h2>Catalogue</h2>
+      <p><label>Search <input id="q" type="search" /></label> <label>Shelf <select id="shelf"><option value="all">all</option><option>gospel</option><option>prophetic</option><option>forensic</option><option>art</option><option>ministry</option></select></label></p>
+      <p id="count"></p>
+      <div id="list"></div>
+    </section>
+  </main>
+  <footer><p>A page is not a verdict. Free reading stays free. Book prices on the interactive house are proposals, not a live till.</p></footer>
+  <script>
+    const list = document.getElementById('list');
+    const count = document.getElementById('count');
+    let works = [];
+    function draw() {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const shelf = document.getElementById('shelf').value;
+      const rows = works.filter((w) => (shelf === 'all' || w.shelf === shelf) && (!q || (w.title + w.synopsis).toLowerCase().includes(q)));
+      count.textContent = rows.length + ' records shown. ' + works.length + ' in the export.';
+      list.innerHTML = rows.slice(0, 40).map((w) => '<article><p class="kicker">' + w.shelf + ' · ' + w.status + '</p><h2>' + w.title + '</h2><p>' + w.synopsis + '</p><p><a href="' + w.sourceUrl + '">' + w.sourceLabel + '</a></p></article>').join('');
+    }
+    fetch('catalogue.json').then((r) => r.json()).then((data) => { works = data.works || []; draw(); }).catch(() => { count.textContent = 'Catalogue file is not on this copy yet.'; });
+    document.getElementById('q').addEventListener('input', draw);
+    document.getElementById('shelf').addEventListener('change', draw);
+  </script>
+</body>
+</html>
